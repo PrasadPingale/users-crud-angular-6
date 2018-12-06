@@ -6,23 +6,35 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Run Project
+Run `npm install` after cloning project from git repository. After successful installation of all packages run command `ng serve` and navigate to `http://localhost:4200/`.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Folder Structure
+app/	Contains the component files in which app logic and data are defined.
 
-## Build
+styles.css	Common styles used in project everywhere.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+app/app.component.ts	Defines the logic for the app's root component, named AppComponent. 
 
-## Running unit tests
+app/app.component.html	Defines the HTML template associated with the root AppComponent.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+app/app.component.css	Defines the base CSS stylesheet for the root AppComponent.
 
-## Running end-to-end tests
+app/app.component.spec.ts	Defines a unit test for the root AppComponent.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+app/app.module.ts	Defines the root module, named AppModule, that tells Angular how to assemble the application. All the components used in appilication are added here 
 
-## Further help
+app/user		Defines logic related to user module here.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+app/user/component	Defines sub component used in application like list users, add users
+
+app/user/services	Defines services related to user component here
+
+app/user/Model		Defines model related to user component.
+
+app/user/component/add	Defines view, logic, styles and data related to add user functionality.
+
+app/user/component/list	Defines view, logic, styles and data related to list user functionality.
+
 # users-crud-angular-6
+
