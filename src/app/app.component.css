@@ -1,0 +1,11 @@
+::ng-deep .ui-toast .ui-toast-message {
+  font-size: 12px;
+}
+
+::ng-deep .ui-toast .ui-toast-message-content {
+  padding: 1.3em 1em;
+}
+
+::ng-deep .ui-toast .ui-toast-icon {
+  top: 0.5em;
+}

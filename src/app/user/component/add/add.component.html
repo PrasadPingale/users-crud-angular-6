@@ -1,0 +1,158 @@
+<div class="container">
+  <div class="title-box col-md-12">
+    <span class="col-md-6 header-text">{{
+      isEditpage ? "Edit user" : "Add User"
+    }}</span>
+    <span class="col-md-6">
+      <button
+        type="button"
+        class="btn btn-success btn-sm pull-right"
+        (click)="isEditpage ? editUser(userForm) : addUser(userForm)"
+      >
+        {{ isEditpage ? "Edit user" : "Add User" }}
+      </button>
+      <button
+        type="button"
+        class="btn btn-secondary btn-sm pull-right"
+        routerLink="/users"
+      >
+        Cancel
+      </button>
+    </span>
+  </div>
+  <div class="col-md-12"></div>
+  <form #userForm="ngForm" novalidate autocomplete="off">
+    <div class="form-group">
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="name" class="label-text"
+            >First Name <span class="required">*</span>
+          </label>
+          <input
+            type="text"
+            class="form-control"
+            id="firstName"
+            maxlength="100"
+            name="firstName"
+            [ngClass]="{ 'is-invalid': isClicked && !firstName.valid }"
+            required
+            [(ngModel)]="user.firstName"
+            #firstName="ngModel"
+          />
+          <small *ngIf="isClicked && !firstName.valid" class="error-msg">
+            First name is required
+          </small>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="name" class="label-text"
+            >Last Name <span class="required">*</span>
+          </label>
+          <input
+            type="text"
+            class="form-control"
+            id="lastName"
+            maxlength="100"
+            name="lastName"
+            [ngClass]="{ 'is-invalid': isClicked && !lastName.valid }"
+            required
+            [(ngModel)]="user.lastName"
+            #lastName="ngModel"
+          />
+          <small *ngIf="isClicked && !lastName.valid" class="error-msg">
+            Last name is required
+          </small>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="name" class="label-text"
+            >Email <span class="required">*</span>
+          </label>
+          <input
+            type="text"
+            class="form-control"
+            id="email"
+            maxlength="100"
+            name="email"
+            [ngClass]="{ 'is-invalid': isClicked && !email.valid }"
+            required
+            [(ngModel)]="user.email"
+            #email="ngModel"
+            [pattern]="emailPattern"
+          />
+          <small
+            *ngIf="isClicked && email.hasError('required')"
+            class="error-msg"
+          >
+            Email id is required
+          </small>
+          <small
+            *ngIf="isClicked && !email.valid && !email.hasError('required')"
+            class="error-msg"
+          >
+            Please enter valid email id
+          </small>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="name" class="label-text"
+            >Contact Number <span class="required">*</span>
+          </label>
+          <input
+            type="text"
+            class="form-control"
+            id="phoneNumber"
+            maxlength="12"
+            name="phoneNumber"
+            [ngClass]="{ 'is-invalid': isClicked && !phoneNumber.valid }"
+            required
+            [(ngModel)]="user.phoneNumber"
+            #phoneNumber="ngModel"
+            [pattern]="phonePattern"
+          />
+          <small
+            *ngIf="isClicked && phoneNumber.hasError('required')"
+            class="error-msg"
+          >
+            Phone number is required
+          </small>
+          <small
+            *ngIf="
+              isClicked &&
+              !phoneNumber.valid &&
+              !phoneNumber.hasError('required')
+            "
+            class="error-msg"
+          >
+            Please enter valid phone number
+          </small>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="name" class="label-text" aria-placeholder="Select Status"
+            >Status
+          </label>
+          <select
+            class="form-control"
+            id="status"
+            maxlength="100"
+            name="status"
+            [(ngModel)]="user.status"
+            #status="ngModel"
+          >
+            <option selected>Active</option>
+            <option>Inactive</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+<ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="medium"
+  color="#fff"
+  type="ball-clip-rotate-pulse"
+>
+</ngx-spinner>
